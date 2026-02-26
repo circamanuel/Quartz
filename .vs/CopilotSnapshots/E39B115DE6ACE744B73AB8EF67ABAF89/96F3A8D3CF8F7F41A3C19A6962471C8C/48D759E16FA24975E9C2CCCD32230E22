@@ -1,0 +1,76 @@
+﻿namespace Quartz
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hei there , Welcome to Quartz! ");
+                // +"To start press enter to exit backspace");
+
+
+                        int focusTime;
+                        int breakTime;
+                        int cycles;
+                        // Set focus time in minutes
+                        Console.WriteLine("Enter Focus time in Minutes");
+                        focusTime = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Focus Time set to: {focusTime} Minutes");
+
+                        // Set break time in minutes
+                        Console.WriteLine("Enter Break time in Minutes");
+                        breakTime = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Breaktime set to: {breakTime} Minutes");
+
+                        // amount of cycles
+                        Console.WriteLine("Enter amount of Cycles, to skip enter");
+
+                        string input = Console.ReadLine();  
+                        if (int.TryParse(input, out int cycles))
+                        {
+
+                        }
+            else
+            cycles = int.Parse(Console.ReadLine());
+                        Console.WriteLine($"Cycles: {cycles}");
+
+                        Console.WriteLine("Quartz: Youre Timer Started !!");
+
+
+                        // Settings switch
+                        Console.WriteLine(@"Settings: 
+                            Space to Pause/Resume 
+                            Q to Quit
+                            S to Skip Cycle+
+                            C to Config times and Cycle");
+
+            while (true)
+            {
+                // checks if key is entered
+                if (Console.KeyAvailable)
+                {
+                    // Hide key in terminal
+                    var key = Console.ReadKey(true);
+                    
+                    switch (key.Key)
+                    {
+                        case ConsoleKey.Spacebar:
+                            Console.WriteLine("spacebar");
+                            break;
+
+                        case ConsoleKey.Q:
+                            Console.WriteLine("Q");
+                            break;
+
+                        case ConsoleKey.S:
+                            Console.WriteLine("S");
+                            break;
+
+                        case ConsoleKey.C:
+                            Console.WriteLine("");
+                            break;
+                    }
+                }
+            }
+        }
+    }
+}

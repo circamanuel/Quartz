@@ -1,0 +1,15 @@
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Quartz.exe
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Quartz.deps.json
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Quartz.runtimeconfig.json
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Quartz.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Quartz.pdb
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.AssemblyInfoInputs.cache
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.AssemblyInfo.cs
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.csproj.CoreCompileInputs.cache
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\refint\Quartz.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.pdb
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.genruntimeconfig.cache
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\ref\Quartz.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.sourcelink.json
