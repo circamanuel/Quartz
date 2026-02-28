@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\manu_\\source\\repos\\Quartz\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\pomodorotimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\pomodorotimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\enums\\pomodorostate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\enums\\pomodorostate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\models\\pomodoroconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\models\\pomodoroconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\pomodorotimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\pomodorotimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,41 +34,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PomodoroConfig.cs",
               "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\PomodoroConfig.cs",
               "RelativeDocumentMoniker": "Quartz\\Models\\PomodoroConfig.cs",
               "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\PomodoroConfig.cs",
               "RelativeToolTip": "Quartz\\Models\\PomodoroConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T16:17:17.593Z",
+              "WhenOpened": "2026-02-28T22:16:03.815Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
-              "RelativeDocumentMoniker": "Quartz\\Program.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
-              "RelativeToolTip": "Quartz\\Program.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAACEAAAAwAAAAAAAAAA==",
+              "Title": "PomodoroState.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\PomodoroState.cs",
+              "RelativeDocumentMoniker": "Quartz\\Enums\\PomodoroState.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\PomodoroState.cs",
+              "RelativeToolTip": "Quartz\\Enums\\PomodoroState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T21:45:15.977Z",
+              "WhenOpened": "2026-02-28T22:16:02.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PomodoroTimer.cs",
               "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
               "RelativeDocumentMoniker": "Quartz\\Services\\PomodoroTimer.cs",
               "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
               "RelativeToolTip": "Quartz\\Services\\PomodoroTimer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-26T16:34:19.934Z",
+              "WhenOpened": "2026-02-28T09:29:24.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
+              "RelativeDocumentMoniker": "Quartz\\Program.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
+              "RelativeToolTip": "Quartz\\Program.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAiwFoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-25T21:45:15.977Z",
               "EditorCaption": ""
             }
           ]

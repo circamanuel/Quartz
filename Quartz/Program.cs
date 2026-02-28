@@ -7,9 +7,11 @@ namespace Quartz
     {
         static void Main(string[] args)
         {
-            var config = new PomodoroConfig();  
+            var config = new PomodoroConfig();
+            CancellationTokenSource source = new CancellationTokenSource();
 
-
+            Console.CursorVisible = false;
+            Console.WriteLine("                                     \r\n                 ▒░░▓                \r\n                ▒░ ░▒▒               \r\n               ▒▒░  ░░▒              \r\n               ▒░    ░░░             \r\n              ░░        ░            \r\n             ░░░        ░░           \r\n            ░░░░░░      ░            \r\n            ░  ░░░      ░░           \r\n                ░░       ░░░         \r\n                ░░░      ░░░         \r\n               ░░░░░░░░░░░░░         \r\n              ░░░░░░░░░░░░░░░        \r\n              ░░░░░░░░▒▒▒▒░░░        \r\n                ░░▒▒▒▒▒▒▒░░          \r\n         ░░   ░░░░░░░▒▒▒▒▒           \r\n            ░░░░░░░░░░▒▓▒░           \r\n            ░░▒▒▓▒▒▒▒▒▓▓             \r\n                 ▒▒▒▒                \r\n                                     ");
             Console.WriteLine("Hei there , Welcome to Quartz! ");
             // +"To start press enter to exit backspace");
 
@@ -47,26 +49,29 @@ namespace Quartz
                 S to Skip Cycle+
                 C to Config times and Cycle");
 
-            while (true)
+            // Start timer
+            var timer = new PomodoroTimer(config);
+            bool stop = false;
+
+            //TODO: Somehow after resume we allways go in to resume and spacebar is allways set. need to reset this to go back to the timer.
+            while (!stop)
             {
                 // checks if key is entered
                 if (Console.KeyAvailable)
                 {
-                    // PomodoroTimer object
-                    var timer = new PomodoroTimer(config);
+
                     // Hide key in terminal
                     var key = Console.ReadKey(true);
 
                     switch (key.Key)
                     {
                         case ConsoleKey.Spacebar:
-                            //timer.Resume();
-                            Console.WriteLine("spacebar");
+                            timer.Resume();
                             break;
 
                         case ConsoleKey.Q:
+                            stop = true;
                             timer.Quit();
-                            Console.WriteLine("Q");
                             break;
 
                         case ConsoleKey.S:
