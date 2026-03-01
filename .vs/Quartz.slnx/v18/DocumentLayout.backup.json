@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\manu_\\source\\repos\\Quartz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\sessionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\models\\pomodorosessions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\models\\pomodorosessions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\pomodorotimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,27 +31,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "PomodoroTimer.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
-              "RelativeDocumentMoniker": "Quartz\\Services\\PomodoroTimer.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
-              "RelativeToolTip": "Quartz\\Services\\PomodoroTimer.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwFYAAAAfAAAAAAAAAA==",
+              "Title": "PomodoroSessions.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\PomodoroSessions.cs",
+              "RelativeDocumentMoniker": "Quartz\\Models\\PomodoroSessions.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\PomodoroSessions.cs",
+              "RelativeToolTip": "Quartz\\Models\\PomodoroSessions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T09:29:24.838Z",
+              "WhenOpened": "2026-03-01T20:28:55.758Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
-              "RelativeDocumentMoniker": "Quartz\\Program.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs*",
-              "RelativeToolTip": "Quartz\\Program.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "SessionService.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\SessionService.cs",
+              "RelativeDocumentMoniker": "Quartz\\Services\\SessionService.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\SessionService.cs*",
+              "RelativeToolTip": "Quartz\\Services\\SessionService.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T21:45:15.977Z",
+              "WhenOpened": "2026-03-01T16:12:31.879Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PomodoroTimer.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
+              "RelativeDocumentMoniker": "Quartz\\Services\\PomodoroTimer.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\PomodoroTimer.cs",
+              "RelativeToolTip": "Quartz\\Services\\PomodoroTimer.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAkwEIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-28T09:29:24.838Z",
               "EditorCaption": ""
             }
           ]
