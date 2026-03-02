@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Quartz.Models
 {
-    internal class PomodoroSessions
+    internal class PomodoroSession
     {
-        //public int CycleCount { get; set; }
+        public Guid id {  get; set; }
         public  DateTime  StartDate {  get; set; }
         public DateTime EndDate { get; set; }
         public int FocusTimeInMinutes { get; set; }

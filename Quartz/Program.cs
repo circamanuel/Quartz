@@ -12,7 +12,7 @@ namespace Quartz
             // Options: Start, Timeline and exit
 
             // Start timer
-            var timer = new PomodoroTimer();
+            var timer = new PomodoroEngine();
 
             bool stop = false;
 

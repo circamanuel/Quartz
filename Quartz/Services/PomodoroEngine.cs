@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Text.Json;
+using Quartz.Persistence;
 
 namespace Quartz.Services
 {
-    internal class PomodoroTimer
+    internal class PomodoroEngine
     {
         private PomodoroConfig _config;
-        private SessionService _session = new SessionService();    
+        private TimelineLogRepository _session = new TimelineLogRepository();    
         private CancellationTokenSource _cts = new CancellationTokenSource();
         private int _remainingTime;
         private int _remainingCycles;
@@ -22,8 +23,9 @@ namespace Quartz.Services
         private int _breakFlag;
         private bool _unlimitedCycles;
         private DateTime _startDate;
+        private bool _alreadySaved = false;
 
-        public PomodoroTimer()
+        public PomodoroEngine()
         {
             PomodoroConfig returnedConfig = BootUpConfig();
 
@@ -137,10 +139,26 @@ namespace Quartz.Services
         // 
         public void Quit()
         {
+            if (_alreadySaved) return;
+            _alreadySaved = true;
+
             _cts?.Cancel(); 
+
+            var session = new PomodoroSession
+            {
+                id =Guid.NewGuid(),
+                StartDate = _startDate,
+                EndDate = DateTime.Now,
+                FocusTimeInMinutes = _focusTime
+            };
+
+            _session.Append(session);
+            
             Console.Clear();
-            _session.LogToJson(_focusTime, _startDate);
             Console.WriteLine("Quartz rests. Your time was not wasted.");
+
+            Environment.Exit(0);
+
         }
 
         public void Skip()
@@ -148,18 +166,6 @@ namespace Quartz.Services
             Console.WriteLine("Skip function");
 
         }
-
-        //// TODO: config logic -> maybe whit a object?
-        //public void Config()
-        //{
-        //    Console.WriteLine("config");
-        //}
-
-        /* Gets the the amount of time for this phase and the name string.
-         * Checks if time was paused.True if _remaining time is not 0
-         * Decrements Cycle 
-         * TimeSpan.FromSeconsds to convert secons to exact time 00:00
-         */
         
         private async Task RunCountDown(int time, String phase )
         {
@@ -181,9 +187,9 @@ namespace Quartz.Services
                     //await Task.Delay(1000, _cts.Token);
                     await Task.Delay(100, _cts.Token);
                 }
-                catch (Exception ex)
+                catch (TaskCanceledException)
                 {
-                    throw new TaskCanceledException();
+                    return;
                 }
             }
 
@@ -231,8 +237,7 @@ namespace Quartz.Services
             } else
             {
                 Console.Clear();
-                _session.LogToJson(_focusTime, _startDate);
-                Console.WriteLine("Done for today");
+                Quit();
             }
 
         }
