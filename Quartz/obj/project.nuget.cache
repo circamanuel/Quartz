@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WnWN3H7Xk1Q=",
+  "dgSpecHash": "HCNba3/7XNI=",
   "success": true,
   "projectFilePath": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Quartz.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\manu_\\.nuget\\packages\\spectre.console\\0.54.0\\spectre.console.0.54.0.nupkg.sha512"
+  ],
   "logs": []
 }

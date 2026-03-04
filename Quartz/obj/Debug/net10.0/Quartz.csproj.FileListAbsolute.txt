@@ -13,3 +13,6 @@ C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.pdb
 C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.genruntimeconfig.cache
 C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\ref\Quartz.dll
 C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.sourcelink.json
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Spectre.Console.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.csproj.AssemblyReference.cache
+C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.csproj.Up2Date

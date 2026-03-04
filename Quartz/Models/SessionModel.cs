@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Quartz.Models
 {
-    internal class PomodoroSession
+    internal class SessionModel
     {
         public Guid id {  get; set; }
         public  DateTime  StartDate {  get; set; }

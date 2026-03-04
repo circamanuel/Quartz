@@ -27,7 +27,7 @@ namespace Quartz.Persistence
 
         }
 
-        public void Append(PomodoroSession session)
+        public void Append(SessionModel session)
         {
             var sessions = LoadAll();
 
@@ -38,42 +38,44 @@ namespace Quartz.Persistence
 
         }
 
-        private List<PomodoroSession> LoadAll()
+        private List<SessionModel> LoadAll()
         {
             if (!File.Exists(_jsonFilePath))
             {
-                return new List<PomodoroSession>();
+                return new List<SessionModel>();
             }
 
             var json = File.ReadAllText(_jsonFilePath);
 
             if (string.IsNullOrWhiteSpace(json))
             {
-                return new List<PomodoroSession>();
+                return new List<SessionModel>();
             }
 
             try
             {
-                List<PomodoroSession>? sessions =
-                    JsonSerializer.Deserialize<List<PomodoroSession>>(json);
+                List<SessionModel>? sessions =
+                    JsonSerializer.Deserialize<List<SessionModel>>(json);
 
                 if (sessions == null)
-                    return new List<PomodoroSession>();
+                {
+                    return new List<SessionModel>();
+                }
 
                 return sessions;
             }
             catch (JsonException)
             {
 
-                PomodoroSession? singleSession =
-                    JsonSerializer.Deserialize<PomodoroSession>(json);
+                SessionModel? singleSession =
+                    JsonSerializer.Deserialize<SessionModel>(json);
 
                 if (singleSession != null)
                 { 
-                    return new List<PomodoroSession> { singleSession };
+                    return new List<SessionModel> { singleSession };
                 }
 
-                return new List<PomodoroSession>();
+                return new List<SessionModel>();
             }
         }
     }
