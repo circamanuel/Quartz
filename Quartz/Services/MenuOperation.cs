@@ -68,7 +68,8 @@ namespace Quartz.Services
                     break;
 
                 case "Stats":
-                    _timelineProzess
+                    Console.Clear();
+                    await _timelineProzessor.TimelineJsonRader();
                     break;
 
                 case "Exit":

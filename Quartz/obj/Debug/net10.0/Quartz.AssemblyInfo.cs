@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Quartz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ccfda9c86ec858942637034c92d7f584889e50c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+639392a00e9eefcc1ce4c6283eddaf0992712b67")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quartz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quartz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
