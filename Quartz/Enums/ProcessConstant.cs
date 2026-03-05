@@ -10,6 +10,7 @@ namespace Quartz.Enums
         Unlimited,
         Limited,
         Saved,
-        NotSaved
+        NotSaved,
+        QuitSessionFlag
     }
 }

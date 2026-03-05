@@ -4,6 +4,7 @@ using System.Text;
 using System.Text.Json;
 using Quartz.Models;
 using Quartz.Persistence;
+using Quartz.Services;
 using Spectre.Console;
 
 namespace Quartz.Services
@@ -11,7 +12,7 @@ namespace Quartz.Services
     internal class TimelineProcessor
     {
 
-        private SessionModel session = new SessionModel();
+
         /* TODO:
          * Anzeige
          *  Datum von bis
@@ -29,37 +30,75 @@ namespace Quartz.Services
          */
         public TimelineProcessor()
         {
-
         }
 
         public async Task TimelineJsonRader()
         {
-            using FileStream openStream = File.OpenRead(AppPaths.TimelineFile);
-            List<SessionModel> session =  JsonSerializer.Deserialize<List<SessionModel>>(openStream);
+            List<SessionModel> session = new List<SessionModel>(); 
+            try
+            {
+                using FileStream openStream = File.OpenRead(AppPaths.TimelineFile);
+                //List<SessionModel> session =  
+                session = JsonSerializer.Deserialize<List<SessionModel>>(openStream);  
+            } 
+            catch 
+            {
+                var panel = new Panel("No dataset")
+                    .RoundedBorder()
+                    .BorderColor(Color.Orange1);
+
+                AnsiConsole.Write(panel);
+
+                return;
+            }
+
 
             TimelineViewer(session);
         }
 
         private void TimelineViewer(List<SessionModel> sessions)
         {
-            foreach (SessionModel session in sessions)
+            string currentMonth = "";
+            DateTime currentDate = new DateTime();
+
+            var tree = new Tree("Timeline");
+            tree.Guide(TreeGuide.Line);
+
+             var sessionsByMonth = sessions
+                    .GroupBy(s => s.StartDate.ToString("MMMM"))
+                    .ToList();
+
+            foreach (var n in sessionsByMonth)
             {
+                var node = tree.AddNode($"[Yellow]{n.Key}[/]");
 
-                var table = new Table();
-                table.Border(TableBorder.Rounded)
-                    .Title($"{session.StartDate.ToString("dddd")}/{session.StartDate.ToString("MMM dd")}");
+                foreach (SessionModel s in n)
+                {
+                    // Create table
+                    var table = new Table();
+                    table.Border(TableBorder.Square)
+                        .Title($"{s.StartDate.ToString("dddd")}/{s.StartDate.ToString("MMM dd")}");
 
-                table.AddColumn($"[Blue]Period[/]");
-                table.AddColumn($"[Blue]Duration in min[/]");
-                table.AddColumn($"[Blue]Focus in min[/]");
+                    table.AddColumn($"[Blue]Period[/]");
+                    table.AddColumn($"[Blue]Duration[/]");
+                    table.AddColumn($"[Blue]Focus[/]");
 
-                int difference = (int)session.EndDate.Subtract(session.StartDate).TotalMinutes;
-                table.AddRow($"{difference}", $"{session.StartDate.ToString("H:mm")} - {session.EndDate.ToString("H:mm")}", $"{session.FocusTimeInMinutes}");
+                    int difference = (int)s.EndDate.Subtract(s.StartDate).TotalMinutes;
+                    table.AddRow($"{s.StartDate.ToString("H:mm")} - {s.EndDate.ToString("H:mm")}", $"{difference} Min", $"{s.FocusTimeInMinutes} Min");
 
-                AnsiConsole.Write(table);
-                Console.WriteLine();
-
+                    node.AddNode(table);
+                }
             }
+                AnsiConsole.Write(tree);
+                var panel = new Panel("[bold]To exit press ESC[/]")
+                    .Header("[White]Information[/]", Justify.Center)
+                    .RoundedBorder()
+                    .BorderColor(Color.CornflowerBlue)
+                    .Padding(2, 1)
+                    .Expand();
+
+            AnsiConsole.Write(panel);
+
                 OptionExecutor();
         }
 
@@ -72,36 +111,18 @@ namespace Quartz.Services
         private void OptionExecutor()
         {
 
-    //       AnsiConsole.MarkupLine("[bold red]Error:[/] Something went wrong");
-    //        AnsiConsole.MarkupLine("[italic]Emphasis text[/]");
-    //        AnsiConsole.MarkupLine("[underline blue]Link text[/]");
-
-    //        // Combining multiple styles
-    //        AnsiConsole.MarkupLine("[bold underline]Important[/]");
-
-    //        // Using Style class
-    //        var style = new Style(Color.White, decoration: Decoration.Bold | Decoration.Underline);
-    //        AnsiConsole.Write("Styled text", style);
-    //        var layout = new Layout("Root")
-    //.SplitColumns(
-    //    new Layout("Left"),
-    //    new Layout("Right"));
-
-    //        layout["Left"].Update(
-    //            new Panel("Left Panel")
-    //                .BorderColor(Color.Green));
-
-    //        layout["Right"].Update(
-    //            new Panel("Right Panel")
-    //                .BorderColor(Color.Blue));
-
-    //        AnsiConsole.Write(layout);
-
-            // Listener on keu or selector from Spectre console
             while (true)
             {
+                if (Console.KeyAvailable) 
+                {
+                    var key = Console.ReadKey();   
 
-
+                    if (key.Key == ConsoleKey.Escape)
+                    {
+                        Console.Clear();
+                        return;
+                    }
+                }
             }
         }
     }

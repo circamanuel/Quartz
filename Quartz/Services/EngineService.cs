@@ -12,6 +12,7 @@ using Quartz.Persistence;
 using Quartz.Enums;
 using System.Reflection.Metadata;
 using Spectre.Console;
+using System.Data;
 
 namespace Quartz.Services
 {
@@ -65,9 +66,40 @@ namespace Quartz.Services
 
         }
 
-        public void Resume()
+        public async Task ResumeAsync()
         {
+            // If there is no Token = True
             if (_cts.Token.IsCancellationRequested)
+            {
+
+                _cts = new CancellationTokenSource();   
+
+                switch (_breakFlag)
+                {
+                    case 0: 
+                        await StartBreak();
+                        break;
+
+                    default:
+                        await StartFocus();
+                        break;
+                }
+
+            } else
+            {
+                // If there is a token we gone cancel it here
+                _cts.Cancel();
+                Console.WriteLine("");
+                var panel = new Panel("Resting...")
+                    .RoundedBorder()
+                    .BorderColor(Color.Orange1);
+
+                AnsiConsole.Write(panel);
+            }
+        }
+        public void Resume(ProcessConstant flag)
+        {
+            if (_cts.Token.IsCancellationRequested && flag != ProcessConstant.QuitSessionFlag)
             {
 
                 _cts = new CancellationTokenSource();   
@@ -85,16 +117,23 @@ namespace Quartz.Services
 
             } else
             {
+                if (flag == ProcessConstant.QuitSessionFlag && _cts.Token.IsCancellationRequested)
+                {
+                    return;
+                }
                 _cts.Cancel();
             }
         }
+
+
 
         public void Quit()
         {
             if (_alreadySaved == ProcessConstant.Saved) return;
             _alreadySaved = ProcessConstant.Saved;
 
-            _cts?.Cancel(); 
+            _cts?.Cancel();
+            System.Threading.Thread.Sleep(200);
 
             var session = new SessionModel
             {
@@ -114,26 +153,9 @@ namespace Quartz.Services
         }
         public void Exit()
         {
-            if (_alreadySaved == ProcessConstant.Saved) return;
-            _alreadySaved = ProcessConstant.Saved;
-
-            _cts?.Cancel(); 
-
-            var session = new SessionModel
-            {
-                id =Guid.NewGuid(),
-                StartDate = _startDate,
-                EndDate = DateTime.Now,
-                FocusTimeInMinutes = _focusTime
-            };
-
-            _session.Append(session);
-            HasFinished = true;
-            
-            Console.Clear();
-            Console.WriteLine("Quartz rests. Your time was not wasted.");
-
-            Environment.Exit(0);
+            Quit();  // Erst aufräumen
+            System.Threading.Thread.Sleep(300);  // Warte
+            Environment.Exit(0);  // DANN beenden
         }
 
         
@@ -153,8 +175,8 @@ namespace Quartz.Services
 
                 try
                 {
-                    //await Task.Delay(1000, _cts.Token);
-                    await Task.Delay(100, _cts.Token);
+                    await Task.Delay(1000, _cts.Token);
+                    //await Task.Delay(100, _cts.Token);
                 }
                 catch (TaskCanceledException)
                 {
@@ -162,7 +184,7 @@ namespace Quartz.Services
                 }
             }
 
-            DecideNextPhaseAndIsInfinitCycles();
+            await DecideNextPhaseAndIsInfinitCyclesAsync();
         }
 
         private void DisplayStatus(String phase, TimeSpan time)
@@ -184,16 +206,17 @@ namespace Quartz.Services
 
             Console.Write($"\r{time.ToString("mm\\:ss")}");
 
+
         }
 
-        private void DecideNextPhaseAndIsInfinitCycles()
+        private async Task DecideNextPhaseAndIsInfinitCyclesAsync()
         {
             if (
                 _remainingCycles > 1 && _breakFlag == ProcessConstant.Break && _config.Cycles > 1 ||
                 _config.UnlimitedCycles == ProcessConstant.Unlimited && _breakFlag == ProcessConstant.Break
                 )
             {
-                StartBreak();
+                await StartBreak();
 
             } else if (
                 _remainingCycles > 0 && _breakFlag == 0 && _config.Cycles > 1 ||
@@ -201,7 +224,7 @@ namespace Quartz.Services
                 )
             {
                 _remainingCycles--;
-                StartFocus();
+                await StartFocus();
 
             } else
             {

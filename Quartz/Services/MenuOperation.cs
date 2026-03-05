@@ -15,6 +15,11 @@ namespace Quartz.Services
         private EngineService _engine;
         private TimelineProcessor _timelineProzessor = new TimelineProcessor();
 
+        public MenuOperation()
+        {
+
+        }
+
         public MenuOperation(EngineService engine)
         {
             _engine = engine;
@@ -34,8 +39,6 @@ namespace Quartz.Services
                     new SelectionPrompt<string>()
                         .Title("Chose a [green] option[/]")
                         .AddChoices("Start", "Stats", "Exit"));
-
-                AnsiConsole.MarkupLine($"Great Choice! [blue]{choice}[/] is awesom");
 
                 await HandleMenuChoice(choice);
 
@@ -63,6 +66,8 @@ namespace Quartz.Services
                     _engine.SetConfig(config);
 
                     _ = _engine.StartFocus();           // fire-and-forget
+
+
                     await HandleInputDuringTimer();      // await den Input-Loop
 
                     break;
@@ -85,28 +90,28 @@ namespace Quartz.Services
                 if (Console.KeyAvailable)
                 {
                     var key = Console.ReadKey(true);
-                    HandleGameInput(key.Key);
+                    HandleGameInputAsync(key.Key);
                 }
 
                 await Task.Delay(50);
             }
         }
 
-        public void HandleGameInput(ConsoleKey key)
+        public async Task HandleGameInputAsync(ConsoleKey key)
         {
             switch (key)
             {
                 case ConsoleKey.Spacebar:
-                    _engine.Resume();  // Pause/Resume
+                    await _engine.ResumeAsync();  // Pause/Resume
                     break;
 
-                case ConsoleKey.Q:
-                    _engine.Resume();
+                case ConsoleKey.Escape:
+                    _engine.Resume(ProcessConstant.QuitSessionFlag);
                     QuitSessionPanel();
                     string choice = QuitPanelSelection(); 
                     if (choice == "Cancel")
                     {
-                        QuitPanelExcecuter(choice);
+                        QuitPanelExcecuterAsync(choice);
                         break;
                     }
 
@@ -122,15 +127,6 @@ namespace Quartz.Services
         {
             
             var config = new ConfigModel();
-
-
-            Console.WriteLine(@"
-            Settings: 
-            Space to Pause/Resume 
-            Q to Quit
-            C to Config times and Cycle
-            ");
-           
 
             // Set focus time in minutes
             Console.Write("Enter Focus time in Minutes: ");
@@ -243,7 +239,7 @@ namespace Quartz.Services
             Console.Clear();
 
             //Console.SetCursorPosition(0, 0);    
-            var panel = new Panel("[bold]Do you realy want to quit this session ?[/]\n\nPress Enter to Exit or ESC to Cancel")
+            var panel = new Panel("[bold]Do you realy want to quit this session ?[/]")
                 .Header("[yellow]Warning[/]", Justify.Center)
                 .RoundedBorder()
                 .BorderColor(Color.DarkRed)
@@ -259,18 +255,17 @@ namespace Quartz.Services
             //Console.SetCursorPosition(10, 0);    
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                  .Title(" Really [yellow] quit?[/]")
-                        .AddChoices("Cancel", "End Session"));
+                    .AddChoices("Cancel", "End Session"));
 
             return choice;
 
         }
 
-        private void QuitPanelExcecuter(string choice)
+        private async Task QuitPanelExcecuterAsync(string choice)
         {
             if (choice == "Cancel")
             {
-                _engine.Resume();
+                await _engine.ResumeAsync();
                 return;
             }
             else
