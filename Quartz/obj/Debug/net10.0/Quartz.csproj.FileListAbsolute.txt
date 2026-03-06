@@ -16,3 +16,5 @@ C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.sourcelink.js
 C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\Spectre.Console.dll
 C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.csproj.AssemblyReference.cache
 C:\Users\manu_\source\repos\Quartz\Quartz\obj\Debug\net10.0\Quartz.csproj.Up2Date
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\System.Windows.Extensions.dll
+C:\Users\manu_\source\repos\Quartz\Quartz\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Windows.Extensions.dll

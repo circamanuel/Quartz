@@ -7,6 +7,7 @@ using System.Text;
 using System.Timers;
 using Quartz.Enums;
 using System.Data;
+using System.Media;
 
 namespace Quartz.Services
 {
@@ -41,6 +42,8 @@ namespace Quartz.Services
                         .AddChoices("Start", "Stats", "Exit"));
 
                 await HandleMenuChoice(choice);
+                
+
 
             }
 
@@ -53,9 +56,9 @@ namespace Quartz.Services
          *      Starts the Timer
          *      awaits if there is a user input
          *  Stats:
-         *      TODO: Calls timeline stats Class
+         *       Calls timeline stats Class
          *  Exit:
-         *      TODO: Quits appliacation
+         *       Quits appliacation
          */
         private async Task HandleMenuChoice(string choice)
         {
@@ -119,7 +122,6 @@ namespace Quartz.Services
                     break;
 
                 case ConsoleKey.C:
-                    // TODO: Config ändern während Timer läuft?
                     break;
             }
         }
@@ -239,10 +241,10 @@ namespace Quartz.Services
             Console.Clear();
 
             //Console.SetCursorPosition(0, 0);    
-            var panel = new Panel("[bold]Do you realy want to quit this session ?[/]")
+            var panel = new Spectre.Console.Panel("[bold]Do you realy want to quit this session ?[/]")
                 .Header("[yellow]Warning[/]", Justify.Center)
                 .RoundedBorder()
-                .BorderColor(Color.DarkRed)
+                .BorderColor(Spectre.Console.Color.DarkRed)
                 .Padding(2, 1)
                 .Expand();
 

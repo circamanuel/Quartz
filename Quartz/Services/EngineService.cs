@@ -13,6 +13,7 @@ using Quartz.Enums;
 using System.Reflection.Metadata;
 using Spectre.Console;
 using System.Data;
+using System.Media;
 
 namespace Quartz.Services
 {
@@ -28,6 +29,7 @@ namespace Quartz.Services
         private ProcessConstant _breakFlag;
         private DateTime _startDate;
         private ProcessConstant _alreadySaved = ProcessConstant.NotSaved;
+        private NotificationService notificationService;
         public bool HasFinished { get; private set; }
 
         public EngineService()
@@ -35,6 +37,7 @@ namespace Quartz.Services
 
             //Console.Clear();
             Console.CursorVisible = false;
+            notificationService = new NotificationService();
         }
 
         public void SetConfig(ConfigModel config)
@@ -90,9 +93,9 @@ namespace Quartz.Services
                 // If there is a token we gone cancel it here
                 _cts.Cancel();
                 Console.WriteLine("");
-                var panel = new Panel("Resting...")
+                var panel = new Spectre.Console.Panel("Resting...")
                     .RoundedBorder()
-                    .BorderColor(Color.Orange1);
+                    .BorderColor(Spectre.Console.Color.Orange1);
 
                 AnsiConsole.Write(panel);
             }
@@ -133,6 +136,7 @@ namespace Quartz.Services
             _alreadySaved = ProcessConstant.Saved;
 
             _cts?.Cancel();
+            notificationService.Dispose();
             System.Threading.Thread.Sleep(200);
 
             var session = new SessionModel
@@ -211,11 +215,13 @@ namespace Quartz.Services
 
         private async Task DecideNextPhaseAndIsInfinitCyclesAsync()
         {
+
             if (
                 _remainingCycles > 1 && _breakFlag == ProcessConstant.Break && _config.Cycles > 1 ||
                 _config.UnlimitedCycles == ProcessConstant.Unlimited && _breakFlag == ProcessConstant.Break
                 )
             {
+                notificationService.ShowPauseNotification();
                 await StartBreak();
 
             } else if (
@@ -224,10 +230,12 @@ namespace Quartz.Services
                 )
             {
                 _remainingCycles--;
+                notificationService.ShowTimerCompleteNotification();
                 await StartFocus();
 
             } else
             {
+                notificationService.ShowAllCompleteNotification();
                 Console.Clear();
                 Quit();
             }

@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\manu_\\source\\repos\\Quartz\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\menuoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\menuoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\timelineprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\timelineprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\enums\\processconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\enums\\processconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,54 +38,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EngineService.cs",
               "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\EngineService.cs",
               "RelativeDocumentMoniker": "Quartz\\Services\\EngineService.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\EngineService.cs",
-              "RelativeToolTip": "Quartz\\Services\\EngineService.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAADgv50AAAAwAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\EngineService.cs*",
+              "RelativeToolTip": "Quartz\\Services\\EngineService.cs*",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAuwIoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T17:29:27.971Z",
+              "WhenOpened": "2026-03-06T18:55:22.497Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProcessConstant.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\ProcessConstant.cs",
-              "RelativeDocumentMoniker": "Quartz\\Enums\\ProcessConstant.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\ProcessConstant.cs",
-              "RelativeToolTip": "Quartz\\Enums\\ProcessConstant.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
+              "RelativeDocumentMoniker": "Quartz\\Program.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs*",
+              "RelativeToolTip": "Quartz\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-05T17:25:18.949Z",
+              "WhenOpened": "2026-03-06T18:52:24.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuOperation.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs",
-              "RelativeDocumentMoniker": "Quartz\\Services\\MenuOperation.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs",
-              "RelativeToolTip": "Quartz\\Services\\MenuOperation.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAmwAgBAAAIAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "NotificationService.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\NotificationService.cs",
+              "RelativeDocumentMoniker": "Quartz\\Services\\NotificationService.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\NotificationService.cs*",
+              "RelativeToolTip": "Quartz\\Services\\NotificationService.cs*",
+              "ViewState": "AgIAADcAAAAAAAAAAAAswFkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-03T09:38:01.084Z",
+              "WhenOpened": "2026-03-06T17:47:00.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TimelineProcessor.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\TimelineProcessor.cs",
+              "RelativeDocumentMoniker": "Quartz\\Services\\TimelineProcessor.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\TimelineProcessor.cs*",
+              "RelativeToolTip": "Quartz\\Services\\TimelineProcessor.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T18:47:32.427Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TimelineProcessor.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\TimelineProcessor.cs",
-              "RelativeDocumentMoniker": "Quartz\\Services\\TimelineProcessor.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\TimelineProcessor.cs",
-              "RelativeToolTip": "Quartz\\Services\\TimelineProcessor.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAuwC0AAAAAAAAAAAAAAA==",
+              "Title": "MenuOperation.cs",
+              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs",
+              "RelativeDocumentMoniker": "Quartz\\Services\\MenuOperation.cs",
+              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs*",
+              "RelativeToolTip": "Quartz\\Services\\MenuOperation.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHwAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T15:20:09.428Z",
+              "WhenOpened": "2026-03-03T09:38:01.084Z",
               "EditorCaption": ""
             }
           ]

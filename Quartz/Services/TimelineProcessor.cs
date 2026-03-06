@@ -13,7 +13,7 @@ namespace Quartz.Services
     {
 
 
-        /* TODO:
+        /*:
          * Anzeige
          *  Datum von bis
          *  Zyklus zeit anzeigen
@@ -43,9 +43,9 @@ namespace Quartz.Services
             } 
             catch 
             {
-                var panel = new Panel("No dataset")
+                var panel = new Spectre.Console.Panel("No dataset")
                     .RoundedBorder()
-                    .BorderColor(Color.Orange1);
+                    .BorderColor(Spectre.Console.Color.Orange1);
 
                 AnsiConsole.Write(panel);
 
@@ -90,10 +90,10 @@ namespace Quartz.Services
                 }
             }
                 AnsiConsole.Write(tree);
-                var panel = new Panel("[bold]To exit press ESC[/]")
+                var panel = new Spectre.Console.Panel("[bold]To exit press ESC[/]")
                     .Header("[White]Information[/]", Justify.Center)
                     .RoundedBorder()
-                    .BorderColor(Color.CornflowerBlue)
+                    .BorderColor(Spectre.Console.Color.CornflowerBlue)
                     .Padding(2, 1)
                     .Expand();
 
@@ -102,10 +102,7 @@ namespace Quartz.Services
                 OptionExecutor();
         }
 
-        /*TODO: Create Spectre.Console Layout
-         *      - Left Tabular data from json 
-         *      - Right Options / maybe selection
-         *      https://spectreconsole.net/console/widgets/layout
+        /*
          */
 
         private void OptionExecutor()
