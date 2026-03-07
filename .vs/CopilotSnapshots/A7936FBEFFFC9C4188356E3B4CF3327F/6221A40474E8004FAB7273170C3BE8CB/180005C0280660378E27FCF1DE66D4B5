@@ -1,0 +1,109 @@
+﻿# ⏱️ Quartz
+
+A **Pomodoro-style focus timer** for the Windows terminal, built with .NET 10 and [Spectre.Console](https://spectreconsole.net/).
+
+Quartz helps you stay productive by alternating between configurable focus and break intervals — with progress bars, Windows notifications, and a session history right in your console.
+
+---
+
+## ✨ Features
+
+- **Configurable Focus & Break Times** — set your own durations in minutes
+- **Cycle Support** — define a fixed number of focus/break cycles or run in unlimited mode
+- **Live Progress Bar** — visual countdown powered by Spectre.Console
+- **Pause & Resume** — press `Space` to pause/resume the current timer
+- **Quit Session** — press `Escape` to end a session early (with confirmation prompt)
+- **Windows Notifications** — balloon-tip notifications at the end of each phase with fun break messages
+- **Session Persistence** — every session is saved as JSON to `%AppData%/Quartz/timeline.json`
+- **Timeline Stats** — view your session history grouped by month in a styled tree/table view
+
+---
+
+## 📸 How It Works
+
+1. **Start** — enter your focus time, break time, and number of cycles
+2. A progress bar counts down each phase (focus → break → focus → …)
+3. Windows notifications pop up when phases switch
+4. When done (or quit early), the session is saved automatically
+5. **Stats** — browse your past sessions in a timeline view, grouped by month
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [.NET 10 SDK](https://dotnet.microsoft.com/download) (Windows)
+- Windows OS (uses `System.Windows.Forms` for notifications and `System.Media` for sound)
+
+### Build & Run
+
+```bash
+git clone https://github.com/circamanuel/Quartz.git
+cd Quartz
+dotnet run --project Quartz
+```
+
+---
+
+## 🎮 Controls
+
+| Key       | Action                                      |
+|-----------|---------------------------------------------|
+| `Space`   | Pause / Resume the current timer            |
+| `Escape`  | Open quit-session prompt                    |
+| `ESC` (Stats view) | Return to main menu                |
+
+---
+
+## 🗂️ Project Structure
+
+```
+Quartz/
+├── Program.cs                          # Entry point
+├── Models/
+│   ├── ConfigModel.cs                  # Focus time, break time, cycles config
+│   └── SessionModel.cs                 # Persisted session data (id, dates, focus time)
+├── Enums/
+│   └── ProcessConstant.cs              # State flags (Focus, Break, Paused, Unlimited, …)
+├── Services/
+│   ├── EngineService.cs                # Core timer engine (countdown, pause, resume, quit)
+│   ├── MenuOperation.cs                # Interactive main menu & user input handling
+│   ├── NotificationService.cs          # Windows balloon notifications & sound playback
+│   └── TimelineProcessor.cs            # Reads & displays session history from JSON
+├── Persistence/
+│   ├── AppPaths.cs                     # Centralized file paths (%AppData%/Quartz/)
+│   └── TimelineLogRepository.cs        # JSON read/write for session data
+└── Quartz.csproj                       # Project file (.NET 10, Windows Desktop SDK)
+```
+
+---
+
+## 📦 Dependencies
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| [Spectre.Console](https://www.nuget.org/packages/Spectre.Console) | 0.54.0 | Rich console UI (menus, progress bars, tables, trees) |
+| [System.Windows.Extensions](https://www.nuget.org/packages/System.Windows.Extensions) | 10.0.3 | `SoundPlayer` support |
+
+---
+
+## 💾 Data Storage
+
+Sessions are persisted in JSON format at:
+
+```
+%AppData%/Quartz/timeline.json
+```
+
+Each session records:
+- **ID** — unique GUID
+- **Start Date** — when the session began
+- **End Date** — when it ended (or was quit)
+- **Focus Time** — the configured focus duration in minutes
+
+---
+
+## 📄 License
+
+This project is open source. See the repository for license details.
