@@ -17,7 +17,6 @@ namespace Quartz.Services
         private NotifyIcon notifyIcon;
         private SoundPlayer soundPlayer;
 
-        // Notifications deactivated: Windows notification sounds
         public NotificationService()
         {
             notifyIcon = new NotifyIcon();  
@@ -26,6 +25,7 @@ namespace Quartz.Services
 
         }
 
+        // Notifications deactivated: Windows notification sounds
         public void PlaySound()
         {
             if (File.Exists(AppPaths.SoundPath))
@@ -85,24 +85,10 @@ namespace Quartz.Services
             );
         }
 
+        // Ends Notification Service
         public void Dispose()
         {
             notifyIcon?.Dispose();
-        }
-
-        public async Task ProgressBar(int totalTime, CancellationToken token)
-        {
-           await AnsiConsole.Progress()
-            .Start(async ctx =>
-            {
-                var task = ctx.AddTask("Processing files", maxValue: totalTime);
-
-                while (!ctx.IsFinished)
-                {
-                    task.Increment(1);
-                    await Task.Delay(1000, token);
-                }
-            });
         }
     }
 }

@@ -32,12 +32,10 @@ namespace Quartz.Services
         private NotificationService notificationService;
         public bool HasFinished { get; private set; }
 
-        private int _totalTime; // ← neues Feld in der Klasse
-
+        private int _totalTime; 
         public EngineService()
         {
 
-            //Console.Clear();
             Console.CursorVisible = false;
             notificationService = new NotificationService();
         }
@@ -56,6 +54,9 @@ namespace Quartz.Services
             HasFinished = false;                        // <-- richtig
         }
 
+        /*
+         * Starts Timer and sets break flag
+         */
         public async Task StartFocus()
         {
             Console.Clear();
@@ -63,7 +64,10 @@ namespace Quartz.Services
             _breakFlag = ProcessConstant.Break;
             await RunCountDown(_focusTime, focusPhase);
         }
-        
+       
+        /*
+         * Starts break timer and set flag to 0
+         */
         public async Task StartBreak()
         {
             Console.Clear();
@@ -73,6 +77,11 @@ namespace Quartz.Services
 
         }
 
+        /*
+         * Resums timer if token is cancelled is requested
+         * Restarts timer if there is no token cancelation request
+         * Sets fresh cancellation token 
+         */
         public async Task ResumeAsync()
         {
             // If there is no Token = True
@@ -105,6 +114,7 @@ namespace Quartz.Services
                 AnsiConsole.Write(panel);
             }
         }
+
         public void Resume(ProcessConstant flag)
         {
             if (_cts.Token.IsCancellationRequested && flag != ProcessConstant.QuitSessionFlag)
@@ -132,7 +142,14 @@ namespace Quartz.Services
                 _cts.Cancel();
             }
         }
-
+        
+        /*
+         * Quits Session and Fills data to Session model
+         * Calls Append function to covert session model to JSON
+         * Cancels cancellation token
+         * Auits notification service
+         * Set flag hasFinished = true
+         */
         public void Quit()
         {
             if (_alreadySaved == ProcessConstant.Saved) return;
@@ -154,9 +171,11 @@ namespace Quartz.Services
             HasFinished = true;
 
             Console.Clear();
-            // Nachricht entfernt — wird jetzt vom Spinner in SavingStatus angezeigt
         }
 
+         /*
+          * Quits Application
+          */
         public void Exit()
         {
             Quit();  // Erst aufräumen
@@ -164,7 +183,9 @@ namespace Quartz.Services
             Environment.Exit(0);  // DANN beenden
         }
 
-        
+       /* Runs Countdown timer with Spectre.Console Loading bar 
+        * Calls Next phase function
+        */
         private async Task RunCountDown(int time, string phase)
         {
             if (_remainingTime == 0)
@@ -211,6 +232,7 @@ namespace Quartz.Services
             await DecideNextPhaseAndIsInfinitCyclesAsync();
         }
 
+        // Returns Cycle status
         private string DisplayStatus(String phase)
         {
             Console.CursorVisible = false;
@@ -226,13 +248,9 @@ namespace Quartz.Services
                 //return "\u221E";
                 return "Infinit";
                 // infinty ascii does't work..
-                //Console.WriteLine("\u221E");
             }
-
-
-
         }
-
+         
         private async Task DecideNextPhaseAndIsInfinitCyclesAsync()
         {
 

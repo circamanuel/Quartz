@@ -9,7 +9,8 @@ namespace Quartz
         {
             var engineService = new EngineService();
             var menuOperations = new MenuOperation(engineService);
-
+            
+            // Starts application
             await menuOperations.ShowMainMenu();
 
         }

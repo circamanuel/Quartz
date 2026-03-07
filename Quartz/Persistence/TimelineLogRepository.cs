@@ -26,7 +26,8 @@ namespace Quartz.Persistence
 
 
         }
-
+        
+        // Converts Session Model to Json File
         public void Append(SessionModel session)
         {
             var sessions = LoadAll();
@@ -37,7 +38,8 @@ namespace Quartz.Persistence
             File.WriteAllText(_jsonFilePath, json);
 
         }
-
+        
+        // Loads all previous JSON Logs from file if exits, else return new List<SessionModel>
         private List<SessionModel> LoadAll()
         {
             if (!File.Exists(_jsonFilePath))

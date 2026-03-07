@@ -3,40 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\manu_\\source\\repos\\Quartz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\manu_\\source\\repos\\Quartz\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\menuoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\menuoperation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\engineservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\services\\notificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\models\\configmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\models\\configmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\persistence\\apppaths.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\persistence\\apppaths.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\enums\\processconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\enums\\processconstant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|c:\\users\\manu_\\source\\repos\\quartz\\quartz\\persistence\\timelinelogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7B8F7697-3061-F0F8-0494-2387D3947E22}|Quartz\\Quartz.csproj|solutionrelative:quartz\\persistence\\timelinelogrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,112 +23,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "README.md",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\README.md",
-              "RelativeDocumentMoniker": "README.md",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\README.md",
-              "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-03-07T17:48:26.769Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "EngineService.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\EngineService.cs",
-              "RelativeDocumentMoniker": "Quartz\\Services\\EngineService.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\EngineService.cs",
-              "RelativeToolTip": "Quartz\\Services\\EngineService.cs",
-              "ViewState": "AgIAAIEAAAAAAAAAAADgv60AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T18:55:22.497Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppPaths.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Persistence\\AppPaths.cs",
-              "RelativeDocumentMoniker": "Quartz\\Persistence\\AppPaths.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Persistence\\AppPaths.cs",
-              "RelativeToolTip": "Quartz\\Persistence\\AppPaths.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T14:18:08.63Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "MenuOperation.cs",
               "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs",
               "RelativeDocumentMoniker": "Quartz\\Services\\MenuOperation.cs",
               "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\MenuOperation.cs",
               "RelativeToolTip": "Quartz\\Services\\MenuOperation.cs",
-              "ViewState": "AgIAAAIBAAAAAAAAAAAgwDsAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAABIBAAAAAAAAAAAwwC4BAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-03T09:38:01.084Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NotificationService.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\NotificationService.cs",
-              "RelativeDocumentMoniker": "Quartz\\Services\\NotificationService.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Services\\NotificationService.cs",
-              "RelativeToolTip": "Quartz\\Services\\NotificationService.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAmwGcAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T17:47:00.033Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
-              "RelativeDocumentMoniker": "Quartz\\Program.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Program.cs",
-              "RelativeToolTip": "Quartz\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-06T18:52:24.614Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ConfigModel.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\ConfigModel.cs",
-              "RelativeDocumentMoniker": "Quartz\\Models\\ConfigModel.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Models\\ConfigModel.cs",
-              "RelativeToolTip": "Quartz\\Models\\ConfigModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T16:06:16.904Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProcessConstant.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\ProcessConstant.cs",
-              "RelativeDocumentMoniker": "Quartz\\Enums\\ProcessConstant.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Enums\\ProcessConstant.cs",
-              "RelativeToolTip": "Quartz\\Enums\\ProcessConstant.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T14:18:17.353Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "TimelineLogRepository.cs",
-              "DocumentMoniker": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Persistence\\TimelineLogRepository.cs",
-              "RelativeDocumentMoniker": "Quartz\\Persistence\\TimelineLogRepository.cs",
-              "ToolTip": "C:\\Users\\manu_\\source\\repos\\Quartz\\Quartz\\Persistence\\TimelineLogRepository.cs",
-              "RelativeToolTip": "Quartz\\Persistence\\TimelineLogRepository.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-07T14:18:10.396Z"
             }
           ]
         }

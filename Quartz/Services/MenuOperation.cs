@@ -117,6 +117,15 @@ namespace Quartz.Services
             _quitFlagSet = true; 
         }
 
+        /*
+         * Handles the input during timer runtime
+         * Space:
+         *  Resums/Restarts timer
+         * Escape:
+         *  Resum timer
+         *  calls QuitSession Panel -> Cancle or Exit
+         *      if Exit Quit Session, else restart timer
+         */
         public async Task HandleInputAsync(ConsoleKey key)
         {
             switch (key)
@@ -143,6 +152,13 @@ namespace Quartz.Services
                     break;
             }
         }
+
+        /*
+         * Gets Configruation Data from user
+         * Focus time in minutes
+         * Break time in minutes
+         * Cycle amount or unlimited 
+         */
         private ConfigModel GetConfigFromUser()
         {
             
@@ -199,6 +215,7 @@ namespace Quartz.Services
             return config;  
         }
 
+        // if user input are not int this class is called
         private int ErrorCall(string promptString = "Please Enter a number: ")
         {
             //return int.Parse(Console.ReadLine());
@@ -280,20 +297,7 @@ namespace Quartz.Services
 
         }
 
-        private async Task QuitPanelExcecuterAsync(string choice)
-        {
-            if (choice == "Cancel")
-            {
-                _ = _engine.ResumeAsync();
-                return;
-            }
-            else
-            {
-                _engine.Quit();
-            }
-
-        }
-
+        // Shows Saving status
         public async Task SavingStatus()
         {
             await AnsiConsole.Status()
