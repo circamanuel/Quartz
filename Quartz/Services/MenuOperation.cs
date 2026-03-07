@@ -15,7 +15,7 @@ namespace Quartz.Services
     {
         private EngineService _engine;
         private TimelineProcessor _timelineProzessor = new TimelineProcessor();
-
+        private bool _quitFlagSet = false;
         public MenuOperation()
         {
 
@@ -42,6 +42,12 @@ namespace Quartz.Services
                         .AddChoices("Start", "Stats", "Exit"));
 
                 await HandleMenuChoice(choice);
+
+                if (_quitFlagSet == true)
+                {
+                    await SavingStatus();
+                    break;
+                } 
                 
 
 
@@ -93,23 +99,25 @@ namespace Quartz.Services
                 if (Console.KeyAvailable)
                 {
                     var key = Console.ReadKey(true);
-                    HandleGameInputAsync(key.Key);
+                    await HandleInputAsync(key.Key);
                 }
 
                 await Task.Delay(50);
             }
         }
 
-        public async Task HandleGameInputAsync(ConsoleKey key)
+        public async Task HandleInputAsync(ConsoleKey key)
         {
             switch (key)
             {
                 case ConsoleKey.Spacebar:
-                    await _engine.ResumeAsync();  // Pause/Resume
+                    _ = _engine.ResumeAsync();  // Pause/Resume
                     break;
 
                 case ConsoleKey.Escape:
                     _engine.Resume(ProcessConstant.QuitSessionFlag);
+                    await setQuitFlag();
+                    await Task.Delay(200);
                     QuitSessionPanel();
                     string choice = QuitPanelSelection(); 
                     if (choice == "Cancel")
@@ -238,8 +246,6 @@ namespace Quartz.Services
 
         private void QuitSessionPanel()
         {
-            Console.Clear();
-
             //Console.SetCursorPosition(0, 0);    
             var panel = new Spectre.Console.Panel("[bold]Do you realy want to quit this session ?[/]")
                 .Header("[yellow]Warning[/]", Justify.Center)
@@ -267,13 +273,31 @@ namespace Quartz.Services
         {
             if (choice == "Cancel")
             {
-                await _engine.ResumeAsync();
+                _ = _engine.ResumeAsync();
                 return;
             }
             else
             {
                 _engine.Quit();
             }
+
+        }
+
+        public async Task SavingStatus()
+        {
+            await Task.Delay(1000);
+            AnsiConsole.Status()
+                .Start("Processing data...", ctx =>
+                {
+                    // Simulate work
+                    Thread.Sleep(2000);
+
+                    AnsiConsole.MarkupLine("[green]Processing complete![/]");
+                });
+        }
+
+        private async Task setQuitFlag()
+        {
 
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Quartz.Persistence;
+using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Media;
@@ -30,7 +31,7 @@ namespace Quartz.Services
             if (File.Exists(AppPaths.SoundPath))
             {
 
-                soundPlayer = new SoundPlayer(AppPaths.SoundPath);
+                soundPlayer = new SoundPlayer(AppPaths.SoundPath)
 
                 soundPlayer.Play();
 
@@ -87,6 +88,21 @@ namespace Quartz.Services
         public void Dispose()
         {
             notifyIcon?.Dispose();
+        }
+
+        public async Task ProgressBar(int totalTime, CancellationToken token)
+        {
+           await AnsiConsole.Progress()
+            .Start(async ctx =>
+            {
+                var task = ctx.AddTask("Processing files", maxValue: totalTime);
+
+                while (!ctx.IsFinished)
+                {
+                    task.Increment(1);
+                    await Task.Delay(1000, token);
+                }
+            });
         }
     }
 }

@@ -63,6 +63,7 @@ namespace Quartz.Services
         
         public async Task StartBreak()
         {
+            Console.Clear();
             string breakPhase = "Break time ";
             _breakFlag = 0;
             await RunCountDown(_breakTime, breakPhase);
@@ -92,7 +93,8 @@ namespace Quartz.Services
             {
                 // If there is a token we gone cancel it here
                 _cts.Cancel();
-                Console.WriteLine("");
+                await Task.Delay(100);
+                Console.Clear();
                 var panel = new Spectre.Console.Panel("Resting...")
                     .RoundedBorder()
                     .BorderColor(Spectre.Console.Color.Orange1);
@@ -128,8 +130,6 @@ namespace Quartz.Services
             }
         }
 
-
-
         public void Quit()
         {
             if (_alreadySaved == ProcessConstant.Saved) return;
@@ -141,7 +141,7 @@ namespace Quartz.Services
 
             var session = new SessionModel
             {
-                id =Guid.NewGuid(),
+                id = Guid.NewGuid(),
                 StartDate = _startDate,
                 EndDate = DateTime.Now,
                 FocusTimeInMinutes = _focusTime
@@ -155,6 +155,7 @@ namespace Quartz.Services
 
             //Environment.Exit(0);
         }
+
         public void Exit()
         {
             Quit();  // Erst aufräumen
@@ -170,28 +171,35 @@ namespace Quartz.Services
                 _remainingTime = time * 60;
             }
 
-            for (int i = _remainingTime; i >= 0; i--)
+            int totalTime = _remainingTime;
+
+           string status =  DisplayStatus(phase);
+
+
+            await AnsiConsole.Progress()
+                .Columns(
+                new TaskDescriptionColumn(),
+                new ProgressBarColumn(),
+                new PercentageColumn(),
+                new RemainingTimeColumn())
+            .StartAsync(async ctx =>
             {
-                _remainingTime = i;
+                var task = ctx.AddTask($"[blue]{status}[/]", maxValue: totalTime);
 
-                TimeSpan preciseDuraiont = TimeSpan.FromSeconds(_remainingTime);
-                DisplayStatus(phase, preciseDuraiont);
-
-                try
+                for (int i = _remainingTime; i >= 0; i--)
                 {
+                    _remainingTime = i;
+                    int elapsed = totalTime - _remainingTime;
+                    task.Value = elapsed;  // ProgressBar aktualisieren
+
                     await Task.Delay(1000, _cts.Token);
-                    //await Task.Delay(100, _cts.Token);
                 }
-                catch (TaskCanceledException)
-                {
-                    return;
-                }
-            }
+            });
 
             await DecideNextPhaseAndIsInfinitCyclesAsync();
         }
 
-        private void DisplayStatus(String phase, TimeSpan time)
+        private string DisplayStatus(String phase)
         {
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 0);    
@@ -199,16 +207,16 @@ namespace Quartz.Services
 
             if (_config.UnlimitedCycles != ProcessConstant.Unlimited) 
             {
-                Console.WriteLine($"\r{_remainingCycles} / {_config.Cycles}");
+                return $"\r{_remainingCycles} / {_config.Cycles}";
             }
             else
             {
-                Console.WriteLine("Infinty");
+                //return "\u221E";
+                return "Infinit";
                 // infinty ascii does't work..
                 //Console.WriteLine("\u221E");
             }
 
-            Console.Write($"\r{time.ToString("mm\\:ss")}");
 
 
         }
