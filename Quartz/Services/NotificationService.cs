@@ -31,7 +31,7 @@ namespace Quartz.Services
             if (File.Exists(AppPaths.SoundPath))
             {
 
-                soundPlayer = new SoundPlayer(AppPaths.SoundPath)
+                soundPlayer = new SoundPlayer(AppPaths.SoundPath);
 
                 soundPlayer.Play();
 

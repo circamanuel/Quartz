@@ -32,6 +32,8 @@ namespace Quartz.Services
         private NotificationService notificationService;
         public bool HasFinished { get; private set; }
 
+        private int _totalTime; // ← neues Feld in der Klasse
+
         public EngineService()
         {
 
@@ -48,6 +50,7 @@ namespace Quartz.Services
             _remainingCycles = config.Cycles;
             _startDate = DateTime.Now;
             _remainingTime = 0;
+            _totalTime = 0; // ← hinzufügen
             _alreadySaved = ProcessConstant.NotSaved;  // <-- reset
             _cts = new CancellationTokenSource();       // <-- frische CTS
             HasFinished = false;                        // <-- richtig
@@ -149,11 +152,9 @@ namespace Quartz.Services
 
             _session.Append(session);
             HasFinished = true;
-            
-            Console.Clear();
-            Console.WriteLine("Quartz rests. Your time was not wasted.");
 
-            //Environment.Exit(0);
+            Console.Clear();
+            // Nachricht entfernt — wird jetzt vom Spinner in SavingStatus angezeigt
         }
 
         public void Exit()
@@ -164,38 +165,49 @@ namespace Quartz.Services
         }
 
         
-        private async Task RunCountDown(int time, String phase )
+        private async Task RunCountDown(int time, string phase)
         {
             if (_remainingTime == 0)
             {
                 _remainingTime = time * 60;
+                _totalTime = _remainingTime;
             }
 
-            int totalTime = _remainingTime;
+            string status = DisplayStatus(phase);
 
-           string status =  DisplayStatus(phase);
-
-
-            await AnsiConsole.Progress()
-                .Columns(
-                new TaskDescriptionColumn(),
-                new ProgressBarColumn(),
-                new PercentageColumn(),
-                new RemainingTimeColumn())
-            .StartAsync(async ctx =>
+            try
             {
-                var task = ctx.AddTask($"[blue]{status}[/]", maxValue: totalTime);
+                await AnsiConsole.Progress()
+                    .Columns(
+                        new TaskDescriptionColumn(),
+                        new ProgressBarColumn(),
+                        new PercentageColumn())
+                    .StartAsync(async ctx =>
+                    {
+                        int alreadyElapsed = _totalTime - _remainingTime;
+                        var task = ctx.AddTask($"[blue]{status}[/]", maxValue: _totalTime);
+                        task.Value = alreadyElapsed;
 
-                for (int i = _remainingTime; i >= 0; i--)
-                {
-                    _remainingTime = i;
-                    int elapsed = totalTime - _remainingTime;
-                    task.Value = elapsed;  // ProgressBar aktualisieren
+                        for (int i = _remainingTime; i >= 0; i--)
+                        {
+                            _remainingTime = i;
+                            int minutes = _remainingTime / 60;
+                            int seconds = _remainingTime % 60;
 
-                    await Task.Delay(1000, _cts.Token);
-                }
-            });
+                            task.Description = $"[blue]{status}[/] [yellow]{minutes:D2}:{seconds:D2}[/]";
+                            task.Value = _totalTime - _remainingTime;
 
+                            await Task.Delay(1000, _cts.Token);
+                        }
+                    });
+            }
+            catch (TaskCanceledException)
+            {
+                return;
+            }
+
+            _remainingTime = 0;
+            _totalTime = 0;
             await DecideNextPhaseAndIsInfinitCyclesAsync();
         }
 

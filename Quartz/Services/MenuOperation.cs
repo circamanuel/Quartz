@@ -32,9 +32,19 @@ namespace Quartz.Services
          */
         public async Task ShowMainMenu()
         {
+            bool showSaved = false;
+
             while (true)
             {
+                Console.Clear();
                 DisplayLogo();
+
+                if (showSaved)
+                {
+                    AnsiConsole.MarkupLine("[green]✓ Session saved![/]");
+                    AnsiConsole.WriteLine();
+                    showSaved = false;
+                }
 
                 var choice = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
@@ -43,14 +53,13 @@ namespace Quartz.Services
 
                 await HandleMenuChoice(choice);
 
-                if (_quitFlagSet == true)
+                if (_quitFlagSet)
                 {
+                    Console.Clear();
                     await SavingStatus();
-                    break;
-                } 
-                
-
-
+                    _quitFlagSet = false;   
+                    showSaved = true;      
+                }
             }
 
         }
@@ -94,7 +103,7 @@ namespace Quartz.Services
 
         private async Task HandleInputDuringTimer()
         {
-            while (!_engine.HasFinished)                
+            while (!_engine.HasFinished)
             {
                 if (Console.KeyAvailable)
                 {
@@ -104,6 +113,8 @@ namespace Quartz.Services
 
                 await Task.Delay(50);
             }
+
+            _quitFlagSet = true; 
         }
 
         public async Task HandleInputAsync(ConsoleKey key)
@@ -116,17 +127,16 @@ namespace Quartz.Services
 
                 case ConsoleKey.Escape:
                     _engine.Resume(ProcessConstant.QuitSessionFlag);
-                    await setQuitFlag();
                     await Task.Delay(200);
                     QuitSessionPanel();
                     string choice = QuitPanelSelection(); 
                     if (choice == "Cancel")
                     {
-                        QuitPanelExcecuterAsync(choice);
+                        _ = _engine.ResumeAsync();
                         break;
                     }
 
-                    _engine.Quit();    // Quit
+                    _engine.Quit();
                     break;
 
                 case ConsoleKey.C:
@@ -139,7 +149,8 @@ namespace Quartz.Services
             var config = new ConfigModel();
 
             // Set focus time in minutes
-            Console.Write("Enter Focus time in Minutes: ");
+            // Set break time in minutes
+            AnsiConsole.MarkupLine($"Enter [Blue]Focus[/] time in Minutes: ");
 
             try
             {
@@ -151,7 +162,7 @@ namespace Quartz.Services
             }
 
             // Set break time in minutes
-            Console.Write("Enter Break time in Minutes: ");
+            AnsiConsole.MarkupLine($"Enter Break [blue]time[/] in Minutes: ");
 
             try
             {
@@ -162,7 +173,7 @@ namespace Quartz.Services
                 config.BreakTime = ErrorCall();
             }
 
-            Console.Write("Enter amount of Cycles, to skip enter: ");
+            AnsiConsole.MarkupLine($"Enter amount of [blue]Cycles[/], to skip enter: ");
             string stringCycle = Console.ReadLine();    
 
             if(string.IsNullOrEmpty(stringCycle))
@@ -285,20 +296,15 @@ namespace Quartz.Services
 
         public async Task SavingStatus()
         {
-            await Task.Delay(1000);
-            AnsiConsole.Status()
-                .Start("Processing data...", ctx =>
+            await AnsiConsole.Status()
+                .Spinner(Spinner.Known.Dots)
+                .SpinnerStyle(Style.Parse("yellow"))
+                .StartAsync("Saving session...", async ctx =>
                 {
-                    // Simulate work
-                    Thread.Sleep(2000);
-
-                    AnsiConsole.MarkupLine("[green]Processing complete![/]");
+                    await Task.Delay(2000);
                 });
-        }
 
-        private async Task setQuitFlag()
-        {
-
+            AnsiConsole.MarkupLine("[green]✓ Session saved![/]");
         }
     }
 }
